@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: hsla(238, 27%, 28%, 1);
+    --luck-text-color: hsla(0, 0%, 0%, 1);
+
+
+    --percentagePink: 100%;
+    --percentageShadow: 0%;
+
+    --bg-card: hsla(0, 0%, 100%, 1);
+    --bg-page: linear-gradient(45deg, #190361 var(--percentageShadow), #B0F var(--percentagePink));
+    --bg-luck: hsla(198, 32%, 92%, 1);
+    --bg-button: hsla(35, 100%, 50%, 1);
+    --bg-button-hover: rgb(228, 152, 46);
+
+
+    --primary-font: 'Montserrat', sans-serif;
+    --secondary-font: 'DM Sans', sans-serif;
+    --lucky-font: 'Dancing Script', cursive;
+
+    font-size: 62.5%;
+}
+
+.hide {
+    display: none;
+}
+
+body {
+    background: var(--bg-page);
+    
+    animation: 10s ease infinite colorChange;
+    background-size: 200% 200%;
+}
+
+.content {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+main {
+    text-align: center;
+    margin: -12rem auto 0 auto;
+    background: var(--bg-card);
+    padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+    width: min(43rem, 90%);
+
+}
+
+.closed-biscuit h2, .opened-biscuit h1 {
+    color: var(--text-color);
+    font-family: var(--primary-font);
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.closed-biscuit p {
+    color: var(--text-color);
+    font-family: var(--secondary-font);
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    margin: 1.4rem 0 2.6rem 0;
+}
+
+
+.closed-biscuit img {
+    width: min(26rem, 100%);
+    cursor: pointer;
+}
+
+.opened-biscuit img {
+   width: min(26rem, 100%);
+}
+
+.closed-biscuit img:hover {
+    animation: 500ms infinite shaking-biscuit;
+}
+
+.opened-biscuit p {
+    color: var(--luck-text-color);
+    font-family: var(--lucky-font);
+    font-size: 2.4rem;
+    font-weight: 400;
+
+    background: var(--bg-luck);
+    box-shadow: 2px 2px 2px 0px rgba(85, 85, 85, 0.50);
+    padding: 1rem;
+    margin: 1.7rem 0;
+
+    animation: 3s messageUp;
+}
+
+.opened-biscuit button {
+    color: var(--bg-card);
+    font-family: var(--secondary-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    border-radius: 4px;
+    background: var(--bg-button);
+    padding: 1.6rem;
+
+    border: none;
+    cursor: pointer;
+
+    transition: background 200ms;
+}
+
+.opened-biscuit button:hover {
+    background: var(--bg-button-hover);
+}
+
+@keyframes shaking-biscuit {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    10% {
+        transform: translateX(2px) translateY(2px) rotate(2deg);
+    }
+
+    20% {
+        transform: translateX(-2px) translateY(2px);
+        
+    }
+
+    50% {
+        transform: translateX(0) translateY(0);
+    }
+
+    60% {
+        transform: translateX(2px) translateY(2px) rotate(-2deg);
+    }
+
+    70% {
+        transform: translateX(-2px) translateY(-2px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes messageUp {
+    0% {
+        transform: translateY(100px) scale(10%);
+    }
+
+    100% {
+        transform: translateY(0) scale(100%);
+    }
+}
+
+/* @keyframes colorChange {
+    0% {
+        --percentagePink: 100%;
+        --percentageShadow: 0%;
+    }
+
+    20% {
+        --percentagePink: 90%;
+        --percentageShadow: 1%;
+    }
+
+    60% {
+        --percentagePink: 80%;
+        --percentageShadow: 2%;
+    }
+
+    100% {
+        --percentagePink: 100%;
+        --percentageShadow: 0%;
+    }
+} */
+
+@keyframes colorChange {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
